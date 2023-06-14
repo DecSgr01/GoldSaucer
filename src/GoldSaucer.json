@@ -1,0 +1,14 @@
+{
+    "Author": "post",
+    "Name": "GoldSaucer",
+    "InternalName": "GoldSaucer",
+    "AssemblyVersion": "1.0.0",
+    "Description": "金蝶小游戏",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 8,
+    "LoadPriority": 0,
+    "Punchline": "自动制作",
+    "IsHide": false,
+    "IsTestingExclusive": true,
+    "LastUpdated": "1683817933195"
+}
