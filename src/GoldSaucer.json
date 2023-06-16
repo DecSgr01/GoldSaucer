@@ -9,6 +9,6 @@
     "LoadPriority": 0,
     "Punchline": "金碟小游戏",
     "IsHide": false,
-    "IsTestingExclusive": true,
+    "IsTestingExclusive": false,
     "LastUpdated": "1683817933195"
 }
