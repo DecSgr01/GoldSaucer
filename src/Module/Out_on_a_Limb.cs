@@ -80,6 +80,7 @@ public unsafe sealed class Out_on_a_Limb
                     {
                         string s = startMenu1->PromptText->NodeText.ToString();
                         s = s.Substring(s.IndexOf('间'), 6).Split(':')[1];
+                        Botanist.statistics();
                         Botanist = null;
                         if (int.Parse(s) <= 15)
                         {

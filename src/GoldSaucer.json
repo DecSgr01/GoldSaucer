@@ -1,13 +1,13 @@
 {
-    "Author": "post",
+    "Author": "DecSgr01",
     "Name": "GoldSaucer",
     "InternalName": "GoldSaucer",
     "AssemblyVersion": "1.0.0",
-    "Description": "金蝶小游戏",
+    "Description": "只有砍树",
     "ApplicableVersion": "any",
     "DalamudApiLevel": 8,
     "LoadPriority": 0,
-    "Punchline": "自动制作",
+    "Punchline": "金碟小游戏",
     "IsHide": false,
     "IsTestingExclusive": true,
     "LastUpdated": "1683817933195"

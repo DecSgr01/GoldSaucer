@@ -24,14 +24,13 @@ public sealed class GoldSaucerView : Window
 
     public override void Draw()
     {
-        Configuration configuration = Svc.PluginInterface.GetPluginConfig() as Configuration;
 
         ImGui.BeginChild("", ImGui.GetContentRegionAvail() with { Y = ImGui.GetContentRegionAvail().Y - ImGuiHelpers.GetButtonSize("保存并关闭").Y - 6 });
 
-        if (ImGui.Checkbox("孤树无援", ref Configuration.Out_on_a_Limb))
+        if (ImGui.Checkbox("孤树无援", ref GoldSaucer.config.Out_on_a_Limb))
         {
             PluginLog.Log("14点13分");
-            Svc.PluginInterface.SavePluginConfig(configuration);
+            Svc.PluginInterface.SavePluginConfig(GoldSaucer.config);
         }
 
         ImGui.EndChild();
@@ -41,7 +40,7 @@ public sealed class GoldSaucerView : Window
 
         if (ImGui.Button("保存并关闭"))
         {
-            Svc.PluginInterface.SavePluginConfig(configuration);
+            Svc.PluginInterface.SavePluginConfig(GoldSaucer.config);
             IsOpen = false;
             PluginLog.Log("Settings saved.");
         }

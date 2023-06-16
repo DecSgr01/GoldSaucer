@@ -19,7 +19,7 @@ public unsafe sealed class GoldSaucer : IDalamudPlugin
     public string Name => "GoldSaucer";
     public WindowSystem windowSystem;
 
-    internal Configuration config { get; }
+    internal static Configuration config { get; set; }
     [PluginService]
     internal static Condition Condition { get; private set; } = null!;
     public GoldSaucer(DalamudPluginInterface pluginInterface)
@@ -54,7 +54,7 @@ public unsafe sealed class GoldSaucer : IDalamudPlugin
     }
     private unsafe void Run(Framework framework)
     {
-        if (Configuration.Out_on_a_Limb)
+        if (config.Out_on_a_Limb)
         {
             Out_on_a_Limb.RunModule(Condition);
             return;

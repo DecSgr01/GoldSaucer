@@ -1,14 +1,21 @@
-﻿namespace GoldSaucer.Module;
+﻿using ECommons.DalamudServices;
+
+namespace GoldSaucer.Module;
 public unsafe sealed class Botanist
 {
     public float rotation { get; set; } = -0.45f;
     public void setState(int state)
     {
+        if (state == 2)
+        {
+            return;
+        }
+
         if (rotation == -0.45f)
         {
             if (state == 0)
             {
-                rotation = 0.45f;
+                rotation = 0.40f;
             }
             else if (state == 1)
             {
@@ -22,8 +29,7 @@ public unsafe sealed class Botanist
                 rotation = -0.75f;
             }
         }
-
-        else if (rotation == 0.45f)
+        else if (rotation == 0.40f)
         {
             if (state == 0)
             {
@@ -31,10 +37,10 @@ public unsafe sealed class Botanist
             }
             else if (state == 1)
             {
-                rotation = 0.28f;
+                rotation = 0.23f;
             }
         }
-        else if (rotation == 0.28f)
+        else if (rotation == 0.23f)
         {
             if (state == 0)
             {
@@ -48,5 +54,37 @@ public unsafe sealed class Botanist
                 rotation = -0.45f;
             }
         }
+    }
+    public void statistics()
+    {
+        if (rotation == -0.75f)
+        {
+            GoldSaucer.config.count1++;
+        }
+        else if (rotation == -0.45f)
+        {
+            GoldSaucer.config.count2++;
+        }
+        else if (rotation == -0.28f)
+        {
+            GoldSaucer.config.count3++;
+        }
+        else if (rotation == -0.03f)
+        {
+            GoldSaucer.config.count4++;
+        }
+        else if (rotation == 0.23f)
+        {
+            GoldSaucer.config.count5++;
+        }
+        else if (rotation == 0.40f)
+        {
+            GoldSaucer.config.count6++;
+        }
+        else if (rotation == 0.70f)
+        {
+            GoldSaucer.config.count7++;
+        }
+        Svc.PluginInterface.SavePluginConfig(GoldSaucer.config);
     }
 }
