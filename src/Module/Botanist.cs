@@ -33,7 +33,7 @@ public unsafe sealed class Botanist
         {
             if (state == 0)
             {
-                rotation = -0.03f;
+                rotation = -0.0175f;
             }
             else if (state == 1)
             {
@@ -69,7 +69,7 @@ public unsafe sealed class Botanist
         {
             GoldSaucer.config.count3++;
         }
-        else if (rotation == -0.03f)
+        else if (rotation == -0.0175f)
         {
             GoldSaucer.config.count4++;
         }

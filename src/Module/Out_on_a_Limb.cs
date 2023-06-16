@@ -71,8 +71,14 @@ public unsafe sealed class Out_on_a_Limb
                     {
                         Botanist = new Botanist();
                     }
-                    float v = Botanist.rotation;
-                    if (v <= slidingNode->Rotation && slidingNode->Rotation <= v + 0.05f)
+                    float less = Botanist.rotation;
+                    float greater = less + 0.05f;
+
+                    if (less == -0.0175f)
+                    {
+                        greater = 0.0175f;
+                    }
+                    if (less <= slidingNode->Rotation && slidingNode->Rotation <= greater)
                     {
                         runClick(btn, addon2);
                     }
