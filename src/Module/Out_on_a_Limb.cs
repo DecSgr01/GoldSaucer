@@ -78,7 +78,7 @@ public unsafe sealed class Out_on_a_Limb
                     {
                         greater = 0.0175f;
                     }
-                    if (less <= slidingNode->Rotation && slidingNode->Rotation <= greater)
+                    if (less < slidingNode->Rotation && slidingNode->Rotation < greater)
                     {
                         runClick(btn, addon2);
                     }

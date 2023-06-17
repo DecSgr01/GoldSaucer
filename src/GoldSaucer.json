@@ -2,7 +2,7 @@
     "Author": "DecSgr01",
     "Name": "GoldSaucer",
     "InternalName": "GoldSaucer",
-    "AssemblyVersion": "1.0.0",
+    "AssemblyVersion": "1.0.1",
     "Description": "只有砍树",
     "ApplicableVersion": "any",
     "DalamudApiLevel": 8,

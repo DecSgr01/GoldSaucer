@@ -3,85 +3,95 @@
 namespace GoldSaucer.Module;
 public unsafe sealed class Botanist
 {
-    public float rotation { get; set; } = -0.50f;
+    public float rotation { get; set; } = -0.025f;
     public void setState(int state)
     {
         if (state == 2)
         {
             return;
         }
-
-        if (rotation == -0.50f)
+        if (rotation == -0.025f)
         {
             if (state == 0)
             {
-                rotation = 0.45f;
+                rotation = -0.375f;
             }
             else if (state == 1)
             {
-                rotation = -0.33f;
+                rotation = -0.20f;
             }
         }
-        else if (rotation == -0.33f)
+        else if (rotation == -0.375f)
         {
             if (state == 0)
             {
-                rotation = -0.75f;
-            }
-        }
-        else if (rotation == 0.45f)
-        {
-            if (state == 0)
-            {
-                rotation = -0.0175f;
+                rotation = 0.325f;
             }
             else if (state == 1)
             {
-                rotation = 0.28f;
+                rotation = -0.68f;
             }
         }
-        else if (rotation == 0.28f)
+        else if (rotation == -0.20f)
         {
             if (state == 0)
             {
-                rotation = 0.70f;
+                rotation = 0.15f;
             }
         }
-        else if (rotation == 0.70f)
+        else if (rotation == 0.325f)
         {
             if (state == 0)
             {
-                rotation = -0.50f;
+                rotation = -0.68f;
+            }
+            else if (state == 1)
+            {
+                rotation = 0.63f;
+            }
+        }
+        else if (rotation == -0.68f)
+        {
+            if (state == 0)
+            {
+                rotation = 0.63f;
+            }
+        }
+        else if (rotation == 0.63f)
+        {
+            if (state == 0)
+            {
+                rotation = -0.025f;
             }
         }
     }
     public void statistics()
     {
-        if (rotation == -0.75f)
+        if (rotation == -0.68f)
         {
             GoldSaucer.config.count1++;
         }
-        else if (rotation == -0.50f)
+        else if (rotation == -0.375f)
         {
             GoldSaucer.config.count2++;
         }
-        else if (rotation == -0.33f)
+        else if (rotation == -0.20f)
         {
             GoldSaucer.config.count3++;
         }
-        else if (rotation == -0.0175f)
+        else if (rotation == -0.025f)
         {
             GoldSaucer.config.count4++;
         }
-        else if (rotation == 0.28f)
+        else if (rotation == 0.15f)
         {
             GoldSaucer.config.count5++;
         }
-        else if (rotation == 0.45f)
+        else if (rotation == 0.325)
         {
             GoldSaucer.config.count6++;
         }
-        else if (rotation == 0.70f)
+        else if (rotation == 0.63f)
         {
             GoldSaucer.config.count7++;
         }
