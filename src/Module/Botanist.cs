@@ -87,7 +87,7 @@ public unsafe sealed class Botanist
         {
             GoldSaucer.config.count5++;
         }
-        else if (rotation == 0.325)
+        else if (rotation == 0.325f)
         {
             GoldSaucer.config.count6++;
         }
