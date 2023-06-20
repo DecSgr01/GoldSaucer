@@ -1,14 +1,12 @@
 {
     "Author": "DecSgr01",
     "Name": "GoldSaucer",
-    "InternalName": "GoldSaucer",
-    "AssemblyVersion": "1.0.2",
+    "AssemblyVersion": "1.0.2.1",
     "Description": "只有砍树",
-    "ApplicableVersion": "any",
-    "DalamudApiLevel": 8,
-    "LoadPriority": 0,
     "Punchline": "金碟小游戏",
-    "IsHide": false,
-    "IsTestingExclusive": false,
-    "LastUpdated": "1687089306910"
+    "RepoUrl": "https://github.com/DecSgr01/GoldSaucer",
+    "Tags": [
+        "miniGame",
+        "Out on a Limb"
+    ]
 }
