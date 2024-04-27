@@ -1,12 +1,13 @@
 {
     "Author": "DecSgr01",
     "Name": "GoldSaucer",
-    "AssemblyVersion": "1.0.2.1",
-    "Description": "只有砍树",
+    "AssemblyVersion": "1.1.0.0",
+    "Description": "只有砍树,难道还有比砍树更快的办法吗?",
     "Punchline": "金碟小游戏",
     "RepoUrl": "https://github.com/DecSgr01/GoldSaucer",
     "Tags": [
         "miniGame",
-        "Out on a Limb"
+        "Out on a Limb",
+        "GoldSaucer"
     ]
 }

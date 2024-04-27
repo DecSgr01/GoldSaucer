@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net8.0-windows7.0": {
+      "ClickLib": {
+        "type": "Direct",
+        "requested": "[1.2.0.1, )",
+        "resolved": "1.2.0.1",
+        "contentHash": "4/bQhZ4y/4MT7381g2UlhltLFme4uOxKNeaSLBR2k6JipVtoqc3cWxM42rSQXxbTC4c5HgWXPFf8nfNPGODyAA==",
+        "dependencies": {
+          "ILRepack": "2.0.18",
+          "Reloaded.Memory": "7.1.0"
+        }
+      },
+      "DalamudPackager": {
+        "type": "Direct",
+        "requested": "[2.1.12, )",
+        "resolved": "2.1.12",
+        "contentHash": "Sc0PVxvgg4NQjcI8n10/VfUQBAS4O+Fw2pZrAqBdRMbthYGeogzu5+xmIGCGmsEZ/ukMOBuAqiNiB5qA3MRalg=="
+      },
+      "ILRepack": {
+        "type": "Transitive",
+        "resolved": "2.0.18",
+        "contentHash": "sR5Aj3JLDbA8JwESfWYfigSz5k1oNSHPN434W1LX8sboWJYEOSQP/KkvZGmJKPgajzSUKkl2jDar3LPZiMFU4Q=="
+      },
+      "Reloaded.Memory": {
+        "type": "Transitive",
+        "resolved": "7.1.0",
+        "contentHash": "4Y5tCsRWdW/shj9W7RqJq37LStuW1VVtjxsBp4LKZilPcjudeQg9k+u+6fnDgacCEJiG3S2EtcaiNtVMTdaSnQ=="
+      }
+    }
+  }
+}

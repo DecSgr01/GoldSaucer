@@ -1,21 +1,18 @@
 ﻿using Dalamud.Interface.Windowing;
-using System;
 using ImGuiNET;
 using FFXIVClientStructs.FFXIV.Common.Math;
-using Dalamud.Interface;
-using Dalamud.Logging;
-using ECommons.DalamudServices;
+using Dalamud.Interface.Utility;
 
 namespace GoldSaucer.View;
 public sealed class GoldSaucerView : Window
 {
     public GoldSaucerView() : base("GoldSaucerView", ImGuiWindowFlags.NoScrollbar)
     {
-        Vector2 minSize = new Vector2(400, 220);
-        Vector2 maxiSize = new Vector2(400, 320);
-        this.Size = minSize;
-        this.SizeCondition = ImGuiCond.FirstUseEver;
-        this.SizeConstraints = new WindowSizeConstraints
+        Vector2 minSize = new(400, 220);
+        Vector2 maxiSize = new(400, 320);
+        Size = minSize;
+        SizeCondition = ImGuiCond.FirstUseEver;
+        SizeConstraints = new WindowSizeConstraints
         {
             MinimumSize = minSize,
             MaximumSize = maxiSize
@@ -27,10 +24,9 @@ public sealed class GoldSaucerView : Window
 
         ImGui.BeginChild("", ImGui.GetContentRegionAvail() with { Y = ImGui.GetContentRegionAvail().Y - ImGuiHelpers.GetButtonSize("保存并关闭").Y - 6 });
 
-        if (ImGui.Checkbox("孤树无援", ref GoldSaucer.config.Out_on_a_Limb))
+        if (ImGui.Checkbox("孤树无援", ref GoldSaucer.Config.Out_on_a_Limb))
         {
-            PluginLog.Log("14点13分");
-            Svc.PluginInterface.SavePluginConfig(GoldSaucer.config);
+            Dalamud.PluginInterface.SavePluginConfig(GoldSaucer.Config);
         }
 
         ImGui.EndChild();
@@ -40,9 +36,9 @@ public sealed class GoldSaucerView : Window
 
         if (ImGui.Button("保存并关闭"))
         {
-            Svc.PluginInterface.SavePluginConfig(GoldSaucer.config);
+            Dalamud.PluginInterface.SavePluginConfig(GoldSaucer.Config);
             IsOpen = false;
-            PluginLog.Log("Settings saved.");
+            Dalamud.PluginLog.Info("Settings saved.");
         }
 
         ImGui.End();
