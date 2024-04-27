@@ -7,12 +7,27 @@ namespace GoldSaucer;
 public class Configuration : IPluginConfiguration
 {
     public int Version { get; set; } = 1;
-    public bool Out_on_a_Limb;
-    public int count1 = 0;
-    public int count2 = 0;
-    public int count3 = 0;
-    public int count4 = 0;
-    public int count5 = 0;
-    public int count6 = 0;
-    public int count7 = 0;
+    internal bool Out_on_a_Limb;
+    internal int count1 = 0;
+    internal int count2 = 0;
+    internal int count3 = 0;
+    internal int count4 = 0;
+    internal int count5 = 0;
+    internal int count6 = 0;
+    internal int count7 = 0;
+
+    internal void Save()
+    {
+        Dalamud.PluginInterface.SavePluginConfig(this);
+    }
+    internal static Configuration Load()
+    {
+        if (Dalamud.PluginInterface.GetPluginConfig() is Configuration config)
+        {
+            return config;
+        }
+        config = new Configuration();
+        config.Save();
+        return config;
+    }
 }
