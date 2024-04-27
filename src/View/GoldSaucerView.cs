@@ -6,27 +6,26 @@ using Dalamud.Interface.Utility;
 namespace GoldSaucer.View;
 public sealed class GoldSaucerView : Window
 {
-    public GoldSaucerView() : base("GoldSaucerView", ImGuiWindowFlags.NoScrollbar)
+    public GoldSaucerView() : base("GoldSaucerView###Dec.Sgr01")
     {
+        Flags = ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse;
         Vector2 minSize = new(400, 220);
         Vector2 maxiSize = new(400, 320);
         Size = minSize;
-        SizeCondition = ImGuiCond.FirstUseEver;
+        SizeCondition = ImGuiCond.Always;
         SizeConstraints = new WindowSizeConstraints
         {
             MinimumSize = minSize,
             MaximumSize = maxiSize
         };
     }
-
     public override void Draw()
     {
-
-        ImGui.BeginChild("", ImGui.GetContentRegionAvail() with { Y = ImGui.GetContentRegionAvail().Y - ImGuiHelpers.GetButtonSize("保存并关闭").Y - 6 });
+        ImGui.BeginChild("Child", ImGui.GetContentRegionAvail() with { Y = ImGui.GetContentRegionAvail().Y - ImGuiHelpers.GetButtonSize("保存并关闭").Y - 6 });
 
         if (ImGui.Checkbox("孤树无援", ref GoldSaucer.Config.Out_on_a_Limb))
         {
-            Dalamud.PluginInterface.SavePluginConfig(GoldSaucer.Config);
+            GoldSaucer.Config.Save();
         }
 
         ImGui.EndChild();
@@ -36,11 +35,9 @@ public sealed class GoldSaucerView : Window
 
         if (ImGui.Button("保存并关闭"))
         {
-            Dalamud.PluginInterface.SavePluginConfig(GoldSaucer.Config);
+            GoldSaucer.Config.Save();
             IsOpen = false;
             Dalamud.PluginLog.Info("Settings saved.");
         }
-
-        ImGui.End();
     }
 }

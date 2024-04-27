@@ -12,22 +12,19 @@ namespace GoldSaucer;
 public unsafe sealed class GoldSaucer : IDalamudPlugin
 {
     public static string Name => "GoldSaucer";
-    private readonly WindowSystem windowSystem;
-
+    public readonly WindowSystem WindowSystem = new(Name);
     public static Configuration Config { get; private set; } = null!;
+    GoldSaucerView GoldSaucerView { get; init; }
     public GoldSaucer(DalamudPluginInterface Interface)
     {
         Dalamud.Initialize(Interface);
-
         Config = Configuration.Load();
         Click.Initialize();
-
-        GoldSaucerView goldSaucerView = new();
-        windowSystem = new WindowSystem(Name);
-        windowSystem.AddWindow(goldSaucerView);
-        Dalamud.PluginInterface.UiBuilder.Draw += windowSystem.Draw;
-        Dalamud.PluginInterface.UiBuilder.OpenConfigUi += delegate { goldSaucerView.IsOpen = true; };
-        Dalamud.PluginInterface.UiBuilder.OpenMainUi += delegate { goldSaucerView.IsOpen = true; };
+        GoldSaucerView = new();
+        WindowSystem.AddWindow(GoldSaucerView);
+        Interface.UiBuilder.Draw += WindowSystem.Draw;
+        Interface.UiBuilder.OpenConfigUi += GoldSaucerView.Toggle;
+        Interface.UiBuilder.OpenMainUi += GoldSaucerView.Toggle;
 
         Dalamud.Framework.Update += Run;
         Dalamud.ChatGui.ChatMessage += Chat_ChatMessage;
@@ -60,7 +57,7 @@ public unsafe sealed class GoldSaucer : IDalamudPlugin
 
     public void Dispose()
     {
-        Dalamud.PluginInterface.UiBuilder.Draw -= windowSystem.Draw;
+        Dalamud.PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
         Dalamud.Framework.Update -= Run;
     }
 }
