@@ -15,7 +15,7 @@ jobs:
     runs-on: windows-latest
 
     env:
-      DALAMUD_HOME: /tmp/dalamud
+      DALAMUD_HOME: C:\tmp\dalamud
     steps:
 
     - uses: actions/checkout@v4
