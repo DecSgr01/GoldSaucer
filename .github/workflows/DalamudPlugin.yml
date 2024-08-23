@@ -37,5 +37,5 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2
       with:
-        files: src\bin\Release\GoldSaucer\latest.zip
+        files: src/bin/Release/GoldSaucer/latest.zip
         body: ${{ github.events.commits[0].message }}
