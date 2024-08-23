@@ -27,7 +27,7 @@ jobs:
 
     - name: Download Dalamud Latest
       run: |
-        wget https://ottercorp.github.io/dalamud-distrib/latest.7z -O ${{ env.DALAMUD_HOME }}.zip
+        curl https://ottercorp.github.io/dalamud-distrib/latest.7z -O ${{ env.DALAMUD_HOME }}.7z
         unzip ${{ env.DALAMUD_HOME }}.7z -d ${{ env.DALAMUD_HOME }}
 
     - name: Restore dependencies
