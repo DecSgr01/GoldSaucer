@@ -27,9 +27,8 @@ jobs:
 
     - name: Download Dalamud Latest
       run: |
-        curl https://ottercorp.github.io/dalamud-distrib/stg/latest.zip -O ${{ env.DALAMUD_HOME }}.zip
-        unzip ${{ env.DALAMUD_HOME }}.zip -d ${{ env.DALAMUD_HOME }}
-
+        Invoke-WebRequest -Uri https://ottercorp.github.io/dalamud-distrib/stg/latest.zip -OutFile ${{ env.DALAMUD_HOME }}.zip
+        Expand-Archive -Force ${{ env.DALAMUD_HOME }}.zip ${{ env.DALAMUD_HOME }}
     - name: Restore dependencies
       run: dotnet restore
       
