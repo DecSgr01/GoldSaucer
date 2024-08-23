@@ -1,0 +1,37 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: DalamudPluginCL
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    env:
+      DALAMUD_HOME: /tmp/dalamud
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Download Dalamud Latest
+      run: |
+        wget https://ottercorp.github.io/dalamud-distrib/latest.7z -O ${{ env.DALAMUD_HOME }}.zip
+        unzip ${{ env.DALAMUD_HOME }}.7z -d ${{ env.DALAMUD_HOME }}
+
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: publish
+      run: dotnet publish
